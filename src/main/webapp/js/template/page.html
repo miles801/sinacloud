@@ -1,0 +1,54 @@
+<style >
+    .btn.btn-default.btn-sm {
+        padding: 2px 5px !important;
+        background: #FFFFFf none;
+    }
+</style >
+<div style="background-color: #EEEEEE;width: 100%;height: 30px;padding:2px 8px;white-space: nowrap;" >
+    <div style="float: left;" ng-if="pager.configLimit" >
+        <span >每页</span >
+        <select ng-model="pager.limit" ng-options="value for value in pager.pageSize" style="width: 50px;height: 24px;" > </select >
+        <span >条</span >
+    </div >
+    <div style="float: left;margin-left: 20px;" ng-cloak>
+        <button class="btn btn-default btn-sm" style="padding:2px 10px;"
+                ng-disabled="pager.currentPage==1"
+                ng-click="pager.first();"
+                ng-if="pager.firstAndLast" >第一页
+        </button >
+        <button class="btn btn-default btn-sm" style="padding:2px 10px;"
+                ng-disabled="pager.currentPage==1"
+                ng-click="pager.prev();"
+                ng-if="pager.prevAndNext" >
+            <i class="glyphicon glyphicon-chevron-left" ></i >
+            <span >上一页</span >
+        </button >
+        <span ng-if="pager.allowNav" style="margin: 0 10px;" >
+            <span >跳转到</span >
+            <span >
+                <input type="text" id="pagination_jumpTo" ng-model="pager.currentPage" style="width: 50px;height: 24px;line-height: 24px;" />
+                <span class="pagination-tooltip" >
+                    <span ng-class="{tip:true,show:pager.currentPage > pager.totalPage,hidden:pager.currentPage <= pager.totalPage }" >超出最大页数!</span >
+                </span >
+            </span >
+            <span >页</span >
+        </span >
+        <button class="btn btn-default btn-sm" style="padding:2px 10px;"
+                ng-disabled="pager.currentPage==pager.totalPage"
+                ng-click="pager.next();"
+                ng-if="pager.prevAndNext" >
+            <span >下一页</span >
+            <i class="glyphicon glyphicon-chevron-right" ></i >
+        </button >
+        <button class="btn btn-default btn-sm" style="padding:2px 10px;"
+                ng-disabled="pager.totalPage==pager.currentPage"
+                ng-click="pager.last();"
+                ng-if="pager.firstAndLast" >
+            <span >最后一页</span >
+        </button >
+    </div >
+    <div style="float: right;margin-left: 10px;text-align: right;line-height: 28px;" >
+        <span >共 <span ng-bind-template="{{ pager.total || 0 }}" ></span > 条</span >
+        <span style="margin-left:20px;" ng-bind-template="{{ pager.currentPage || 1 }}" ></span >/<span ng-bind-template="{{ pager.totalPage || 1}}" ></span > 页</span >
+    </div >
+</div >

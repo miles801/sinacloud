@@ -1,0 +1,27 @@
+<div class="row" >
+    <span >
+        <span class="upload" ng-show="!options.disabled" >
+            <input type="file" ng-file-select />
+            <span class="btn btn-min btn-upload" >{{options.text || '上传'}}</span >
+        </span >
+        <button class="btn btn-min" id="btn_url" style="background-color: #FFFFFF;"
+                ng-show="options.enableUrl" >URL
+        </button >
+    </span >
+
+    <div class="row" ng-repeat="item in uploader.queue" ng-cloak >
+        <span ng-if="item.file.type==='url'" ><a ng-href="{{item.file.name}}" target="_blank" >{{ item.file.name }}</a ></span >
+        <span ng-if="item.file.type!=='url'" ><a ng-click="view(item.file)" style="cursor: pointer;">{{ item.file.name }}</a ></span >
+            <span ng-show="uploader.isHTML5 && item.file.size>0 && item.progress<100" style="width: 200px;" >
+                <div class="progress" style="margin-bottom: 0;width: 100%;" >
+                    <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }" ></div >
+                </div >
+            </span >
+            <span style="padding-left: 5px;cursor: pointer;" ng-click="cancel($index);" title="取消" ng-show="item.progress && item.progress!=100" >
+                <i class="glyphicons remove_2" ></i >
+            </span >
+            <span style="padding-left: 5px;cursor: pointer;" ng-click="remove($index);" title="移除" ng-show="item.progress===100 && !options.disabled" >
+                <i class="glyphicons remove_2" ></i >
+            </span >
+    </div >
+</div >

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head >
+    <base href="../../" >
+    <title >股票查询</title >
+    <meta charset="utf-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="vendor/bootstrap-v3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style/artDialog.css" />
+    <script type="text/javascript" src="vendor/jquery-v1.8.3/jquery.min.js" ></script >
+    <script type="text/javascript" src="vendor/angular-v1.2.9/angular.min.js" ></script >
+    <script type="text/javascript" src="app/stock/stock.js" ></script >
+    <script type="text/javascript" src="app/stock/StockController.js" ></script >
+    <style >
+        .ng-cloak {
+            display: none;
+        }
+
+        .row {
+            margin-top: 10px;
+        }
+
+        div {
+            scrollbar-arrow-color: buttontext
+        }
+
+        table .btn-group .btn {
+            padding: 3px 10px;
+        }
+
+        table#stockTable tbody td {
+            vertical-align: middle;
+        }
+    </style >
+</head >
+<body >
+<div class="container" ng-app="com.miles.stock" ng-controller="StockCtrl" style="padding: 20px;" >
+    <div class="row text-center" style="position: relative;" >
+        <!--<div class="col-md-3" >&nbsp;</div >-->
+        <div class="col-md-6" >
+            <input type="text" class="form-control " name="code" placeholder="请输入股票代码或者名称拼音,例如600198 TLGX" ng-model="code" stock-list="selectedStocks" />
+        </div >
+    </div >
+    <div class="panel panel-default" style="margin-top: 10px;" >
+        <div class="panel-heading" >已选择股票</div >
+        <div class="panel-body" ng-cloak >
+            <span ng-repeat="foo in selectedStocks" style="margin-left: 20px;float:left;" >{{foo.name}} <i class="glyphicons remove" ng-click="remove($index);" style="cursor: pointer;" ></i ></span >
+        </div >
+    </div >
+    <div class="row text-center" >
+        <button class="btn btn-primary" ng-click="query();" ng-disabled="!selectedStocks.length" ng-show="!running" >查询</button >
+        <button class="btn btn-default" ng-click="stop();" ng-show="running" >停止查询</button >
+    </div >
+    <div class="row" >
+        <table class="table table-bordered" id="stockTable" >
+            <thead >
+            <tr >
+                <td >名称</td >
+                <td >股票代码</td >
+                <td >当前价</td >
+                <td sort="currentPercent" >涨幅</td >
+                <td >开盘价</td >
+                <td >今日最高</td >
+                <td >今日最低</td >
+                <td >时间</td >
+                <td >图表</td >
+            </tr >
+            </thead >
+            <tbody >
+            <tr ng-repeat="foo in stocks | orderBy:orderBy:reverse" ng-cloak ng-class="{success:foo.currentPercent<0,danger:foo.currentPercent>0}" >
+                <td >{{foo.name}}</td >
+                <td >{{foo.code}}</td >
+                <td >{{foo.currentPrice|number:2}}</td >
+                <td >{{foo.currentPercent|number:2}}%</td >
+                <td >{{foo.openPrice|number:2}}</td >
+                <td >{{foo.todayHighPrice|number:2}}</td >
+                <td >{{foo.todayLowPrice|number:2}}</td >
+                <td >{{foo.time}}</td >
+                <td >
+                    <div class="btn-group" >
+                        <button type="button" class="btn btn-default" ng-click="minK(foo.code,$index);" >分时</button >
+                        <button type="button" class="btn btn-info" ng-click="dayK(foo.code,$index);" >日K</button >
+                        <button type="button" class="btn btn-warning" ng-click="weekK(foo.code,$index);" >周K</button >
+                        <button type="button" class="btn btn-danger" ng-click="monthK(foo.code,$index);" >月K</button >
+                    </div >
+                </td >
+            </tr >
+            </tbody >
+        </table >
+    </div >
+    <div class="row text-right" >
+        <a href="http://sae.sina.com.cn" >云计算服务商</a >
+        <img src="style/images/sae.png" alt="" width="125" height="35" />
+    </div >
+</div >
+</body >
+</html >

@@ -1,0 +1,32 @@
+<div >
+    <div class="row" ng-repeat="item in beans.items" >
+        <div class="col-2" style="padding-right: 5px;" >
+            <select class="col-12" ng-model="item.attachmentType" ng-options="foo.code as foo.name for foo in types" > </select >
+        </div >
+        <div class="col-10" >
+            <div class="col-12" >
+                <span ng-show="item.attachmentType==1" class="col-8" >
+                    <span class="col-12" style="width:100%;margin-right: -65px;padding-right: 65px;" >
+                        <input type="text" class="col-12" />
+                    </span >
+                    <span class="upload" style="float: right;position: relative;top:-1px;cursor: pointer;" >
+                        <input type="file" ng-file-select />
+                        <span class="btn btn-min btn-upload" title="上传" >
+                            <i class="glyphicons upload" style="z-index: -99;" ></i >
+                        </span >
+                    </span >
+                    <div style="clear: both;" ></div >
+                </span >
+                <input type="text" ng-show="item.attachmentType==2" ng-model="beans.url" class="col-8" />
+                <button class="btn btn-default btn-min" ng-click="add();" ng-if="$index==0"
+                        style="margin-left: 5px;" title="添加" >
+                    <span class="glyphicons plus" ></span >
+                </button >
+                <button class="btn btn-default btn-min" ng-click="remove($index);" ng-if="$index > 0"
+                        style="margin-left: 5px;" title="删除" >
+                    <span class="glyphicons minus" ></span >
+                </button >
+            </div >
+        </div >
+    </div >
+</div >

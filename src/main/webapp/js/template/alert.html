@@ -1,0 +1,6 @@
+<div style="position: absolute;left:0;top:0;height: 60px;width: 95%;z-index: 9999;left:50%;" class="am-fade" >
+    <div style="position: relative;left: -50%;width: 100%;" class="alert alert-{{ type || 'success'}}" >
+        <strong ng-bind-template="{{ title }} " style="padding: 0 1em;" ></strong ><span ng-bind-template="{{ content || '' }}" ></span >
+        <button type="button" class="close" ng-click="$hide();" aria-hidden="true" style="cursor: pointer;" >&times;</button >
+    </div >
+</div >

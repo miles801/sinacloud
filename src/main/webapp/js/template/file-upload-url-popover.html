@@ -1,0 +1,17 @@
+<div class="popover" >
+    <div class="arrow" ></div >
+    <h3 class="popover-title" >请输入网址</h3 >
+
+    <div class="popover-content" >
+        <form role="form" name="form" >
+            <div class="row" >
+                <input type="text" ng-model="url" name="url" validate validate-required
+                       style="width: 250px;" placeholder="http://" />
+            </div >
+            <div class="row" style="text-align: right;" >
+                <button class="btn btn-primary btn-min" ng-disabled="form.$invalid" ng-click="uploadUrl();" >确认</button >
+                <button class="btn btn-default btn-min" ng-click="$hide();" >取消</button >
+            </div >
+        </form >
+    </div >
+</div >
