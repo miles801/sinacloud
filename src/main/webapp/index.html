@@ -2,10 +2,335 @@
 <meta charset="utf-8" >
 <meta http-equiv="X-UA-Compatible" content="IE=edge" >
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<body >
-<h2 >Hello Miles !</h2 >
+<link rel="stylesheet" href="style/nav/nav.css" />
+<script type="text/javascript" src="vendor/jquery-v1.8.3/jquery.min.js" ></script >
+<script >
 
-<p >应用描述：微信公众号的最基本的包~~~~!</p >
-<a href="app/stock/stock.html" >股票查询</a >
+    $(function () {
+        // 菜单
+        $('.item,.home').mouseover(function (e) {
+            var current = $(e.currentTarget);
+            current.find('.product-wrap').show();
+            current.addClass('active');
+        }).mouseout(function (e) {
+            var current = $(e.currentTarget);
+            current.find('.product-wrap').hide();
+            current.removeClass('active');
+        });
+
+        // 动态文本框
+        $('#searchtxt').click(function (e) {
+            $(e.target).animate({width: 180}, 500);
+        }).blur(function (e) {
+            $(e.target).animate({width: 40}, 500);
+        });
+    });
+
+</script >
+<body >
+<header class="header" >
+    <div class="logo" >
+        <!--<a href="/" ><img src="style/nav/logo.jpg" ></a >-->
+    </div >
+    <div class="hnav" >
+        <div class="search" >
+            <form target="_blank" >
+                <input id="searchtxt" type="text" name="q" class="searchTxt" autocomplete="off" style="width: 40px;" >
+                <input type="submit" class="seaButt" value="搜索" >
+            </form >
+        </div >
+        <!-- 已登录 -->
+        <div class="logined" >
+            <div class="mem_detail" >
+                <ul >
+                    <li >
+                        <a href="/favored/plugin" >我的收藏 </a >
+                    </li >
+                    <li >
+                        <a href="/mem/set" >个人设置</a >
+                    </li >
+                    <li >
+                        <a href="/mem/logout" >退出 </a >
+                    </li >
+                </ul >
+            </div >
+            <a class="bartx" href="/favored/plugin" ><img class="batx data_src" src="" ></a ><a class="msgtip" href="/mem/msg" ></a >
+        </div >
+        <!-- 未登录 -->
+        <div class="nologined" style="display: block;" >
+            <a id="loginbtn" class="loginbtn" href="#" title="登陆" ><i class="ticon" ></i ></a >
+        </div >
+    </div >
+    <div class="clear" ></div >
+</header >
+<!-- 导航菜单 -->
+<div class="nav" >
+    <div class="all-nav" >
+        <!-- 首页 -->
+        <div class="home" >
+            <a class="gohome" href="/" ><img src="style/nav/images/icnhome.png" alt="分类首页" ></a >
+        </div >
+
+        <div class="item" >
+            <div class="product" >
+                <h3 >
+                    <a class="icn icn-ui" href="#" target="contentIframe" ><span >股票</span ></a >
+                </h3 >
+            </div >
+            <div class="product-wrap pos01" style="display: none; left: 80px;" >
+                <h2 > 股票 </h2 >
+
+                <div style="height:90%" >
+                    <div class="mCustomScrollBox" style="position:relative; height:100%; overflow:hidden; max-width:100%;" >
+                        <div class="container no_scrollbar" style="position: relative; top: 0;" >
+                            <ul >
+                                <li >
+                                    <a href="app/stock/stock.html" target="contentIframe" ><span class="input-all input-10" ></span ><span >股票查询 </span ></a >
+                                </li >
+                            </ul >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+        <div class="item" >
+            <div class="product" >
+                <h3 >
+                    <a class="icn icn-input" href="/jquery/1输入" ><span >输入</span ></a >
+                </h3 >
+            </div >
+            <div class="product-wrap pos02" style="display: none; left: 80px;" >
+                <h2 >
+                    输入
+                </h2 >
+
+                <div class="gdt mCustomScrollbar _mCS_2" style="height:90%" >
+                    <div class="mCustomScrollBox mCS-light" id="mCSB_2" style="position:relative; height:100%; overflow:hidden; max-width:100%;" >
+                        <div class="container no_scrollbar" style="position: relative; top: 0px;" >
+                            <ul >
+                                <li >
+                                    <a href="/jquery/1输入" ><span class="input-all input-1" ></span ><span >所有输入 </span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/拾色器" ><span class="input-all input-2" ></span ><span >拾色器</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/定制和风格" ><span class="input-all input-3" ></span ><span >定制和风格</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/日期和时间" ><span class="input-all input-4" ></span ><span >日期和时间</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/拖和放" ><span class="input-all input-5" ></span ><span >拖和放</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/通用输入" ><span class="input-all input-6" ></span ><span >通用输入</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/自动完成" ><span class="input-all input-7" ></span ><span >自动完成</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/密码" ><span class="input-all input-8" ></span ><span >密码</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/投票率" ><span class="input-all input-9" ></span ><span >投票率</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/搜索" ><span class="input-all input-10" ></span ><span >搜索</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/选择框" ><span class="input-all input-11" ></span ><span >选择框</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/快捷键" ><span class="input-all input-12" ></span ><span >快捷键</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/触摸" ><span class="input-all input-13" ></span ><span >触摸</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/丰富的输入" ><span class="input-all input-14" ></span ><span >丰富的输入</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/上传" ><span class="input-all input-15" ></span ><span >上传</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/验证" ><span class="input-all input-16" ></span ><span >验证</span ></a >
+                                </li >
+                            </ul >
+                        </div >
+                        <div class="mCSB_scrollTools" style="position: absolute; display: none;" >
+                            <div class="mCSB_draggerContainer" >
+                                <div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;" >
+                                    <div class="mCSB_dragger_bar" style="position:relative;" ></div >
+                                </div >
+                                <div class="mCSB_draggerRail" ></div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+        <div class="item" >
+            <div class="product" >
+                <h3 >
+                    <a class="icn icn-media" href="/jquery/1媒体" ><span >媒体</span ></a >
+                </h3 >
+            </div >
+            <div class="product-wrap pos03" style="display: none; left: 80px;" >
+                <h2 >
+                    媒体
+                </h2 >
+
+                <div class="gdt mCustomScrollbar _mCS_3" style="height:90%" >
+                    <div class="mCustomScrollBox mCS-light" id="mCSB_3" style="position:relative; height:100%; overflow:hidden; max-width:100%;" >
+                        <div class="container no_scrollbar" style="position: relative; top: 0px;" >
+                            <ul >
+                                <li >
+                                    <a href="/jquery/1媒体" ><span class="media-all media-1" ></span ><span >所有媒体 </span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/音频和视频" ><span class="media-all media-2" ></span ><span >音频和视频</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/幻灯片和轮播图" ><span class="media-all media-3" ></span ><span >幻灯片和轮播图</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/图片展示" ><span class="media-all media-4" ></span ><span >图片展示</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/图像" ><span class="media-all media-5" ></span ><span >图像</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/地图" ><span class="media-all media-6" ></span ><span >地图</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/滑块和旋转" ><span class="media-all media-7" ></span ><span >滑块和旋转</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/Tabs" ><span class="media-all media-8" ></span ><span >Tabs</span ></a >
+                                </li >
+                            </ul >
+                        </div >
+                        <div class="mCSB_scrollTools" style="position: absolute; display: none;" >
+                            <div class="mCSB_draggerContainer" >
+                                <div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;" >
+                                    <div class="mCSB_dragger_bar" style="position:relative;" ></div >
+                                </div >
+                                <div class="mCSB_draggerRail" ></div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+        <div class="item" >
+            <div class="product" >
+                <h3 >
+                    <a class="icn icn-nav" href="/jquery/1导航" ><span >导航</span ></a >
+                </h3 >
+            </div >
+            <div class="product-wrap pos04" style="display: none; left: 80px;" >
+                <h2 >
+                    导航
+                </h2 >
+
+                <div class="gdt mCustomScrollbar _mCS_4" style="height:90%" >
+                    <div class="mCustomScrollBox mCS-light" id="mCSB_4" style="position:relative; height:100%; overflow:hidden; max-width:100%;" >
+                        <div class="container no_scrollbar" style="position: relative; top: 0px;" >
+                            <ul >
+                                <li >
+                                    <a href="/jquery/1导航" ><span class="nav-all nav-1" ></span ><span >所有导航 </span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/水平导航" ><span class="nav-all nav-2" ></span ><span >水平导航</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/垂直导航" ><span class="nav-all nav-3" ></span ><span >垂直导航</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/文件树" ><span class="nav-all nav-4" ></span ><span >文件树</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/分页" ><span class="nav-all nav-5" ></span ><span >分页</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/手风琴菜单" ><span class="nav-all nav-6" ></span ><span >手风琴菜单</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/其他导航" ><span class="nav-all nav-7" ></span ><span >其他导航</span ></a >
+                                </li >
+                            </ul >
+                        </div >
+                        <div class="mCSB_scrollTools" style="position: absolute; display: none;" >
+                            <div class="mCSB_draggerContainer" >
+                                <div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;" >
+                                    <div class="mCSB_dragger_bar" style="position:relative;" ></div >
+                                </div >
+                                <div class="mCSB_draggerRail" ></div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+        <div class="item" >
+            <div class="product" >
+                <h3 >
+                    <a class="icn icn-other" href="/jquery/1其他" ><span >其他</span ></a >
+                </h3 >
+            </div >
+            <div class="product-wrap pos05" style="display: none; left: 80px;" >
+                <h2 >
+                    其他
+                </h2 >
+
+                <div class="gdt mCustomScrollbar _mCS_5" style="height:90%" >
+                    <div class="mCustomScrollBox mCS-light" id="mCSB_5" style="position:relative; height:100%; overflow:hidden; max-width:100%;" >
+                        <div class="container no_scrollbar" style="position: relative; top: 0px;" >
+                            <ul >
+                                <li >
+                                    <a href="/jquery/1其他" ><span class="other-all other-1" ></span ><span >所有其他 </span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/动画效果" ><span class="other-all other-2" ></span ><span >动画效果</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/浏览器调整" ><span class="other-all other-3" ></span ><span >浏览器调整</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/移动" ><span class="other-all other-4" ></span ><span >移动</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/独立的部件" ><span class="other-all other-5" ></span ><span >独立的部件</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/杂项" ><span class="other-all other-6" ></span ><span >杂项</span ></a >
+                                </li >
+                                <li >
+                                    <a href="/jquery/游戏" ><span class="other-all other-7" ></span ><span >游戏</span ></a >
+                                </li >
+                            </ul >
+                        </div >
+                        <div class="mCSB_scrollTools" style="position: absolute; display: none;" >
+                            <div class="mCSB_draggerContainer" >
+                                <div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;" >
+                                    <div class="mCSB_dragger_bar" style="position:relative;" ></div >
+                                </div >
+                                <div class="mCSB_draggerRail" ></div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+    </div >
+</div >
+
+<!-- 内容区 -->
+<div class="mainhome" >
+    <div class="inner" >
+        <iframe id="contentIframe" name="contentIframe" style="border: 0;width: 100%;height: 100%;padding: 0;margin:0;" ></iframe >
+    </div >
+</div >
 </body >
 </html >
